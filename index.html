@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interiors & AC Website</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+
+    html {
+  scroll-behavior: smooth;
+}
+
+    /* Transparent Navbar */
+    .custom-navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      background: rgba(0, 0, 0, 0);
+      transition: 0.4s ease;
+    }
+
+    .custom-navbar.scrolled {
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+    }
+
+    .custom-navbar .navbar-brand,
+    .custom-navbar .nav-link {
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .custom-navbar .nav-link:hover {
+      color: #f4c430 !important;
+    }
+
+    .navbar-toggler {
+      background: #fff;
+    }
+
+    /* Carousel Overlay */
+    .carousel-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+
+    /* Carousel Image */
+    .carousel-item img {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+      animation: zoom 8s ease-in-out infinite;
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Carousel Text */
+    .carousel-caption-custom {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Remove White Flash */
+    .carousel-inner {
+      background: #000;
+    }
+
+    .carousel-fade .carousel-item {
+      opacity: 0;
+      transition: opacity 1.3s ease-in-out;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .carousel-fade .carousel-item.active {
+      opacity: 1;
+      position: relative;
+      z-index: 3;
+    }
+
+    /* ---------------------------
+       MAKE PREV/NEXT BUTTONS VISIBLE
+       --------------------------- */
+    .carousel-control-prev,
+    .carousel-control-next {
+      z-index: 10 !important;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+     color: #f4c430;
+      width: 45px;
+      height: 45px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Transparent Navbar -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Interior & AC</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Interiors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">AC Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO CAROUSEL -->
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+
+    <div class="carousel-inner">
+
+      <!-- SLIDE 1 -->
+      <div class="carousel-item active">
+        <img src="https://beautyharmonylife.com/wp-content/uploads/2016/08/3D-living-dining-room-with-central-air-conditioning-1024x626.jpg" alt="">
+        <div class="carousel-caption-custom">
+          <h1 class="fw-bold">Interiors & AC Sales</h1>
+          <p>Professional Installation | Repair | Maintenance</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="carousel-item">
+        <img src="https://i.redd.it/sv2pkz4h35r11.jpg" alt="">
+        <div class="carousel-caption-custom">
+          <h1 class="fw-bold">Modern Interior Designs</h1>
+          <p>Stylish • Functional • Affordable</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="carousel-item">
+        <img src="https://www.vijaysales.com/content/vijaysaleswebsite/us/en/product-details-page/_jcr_content/root/container/vscontainer_869603545/container/image.coreimg.jpeg/1721908206847/installation.jpeg" alt="">
+        <div class="carousel-caption-custom">
+          <h1 class="fw-bold">AC Repair & Services</h1>
+          <p>Fast – Reliable – Skilled Technicians</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+
+
+<section id="about" class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT SIDE — IMAGE COLLAGE -->
+      <div class="col-lg-6 position-relative mb-4 about-images">
+
+        <!-- MAIN BIG IMAGE -->
+        <img 
+          src="https://img.freepik.com/premium-photo/interior-design-living-room-modern-house_1190923-1262.jpg"
+          class="img-fluid rounded shadow main-img"
+          alt=""
+        />
+
+        <!-- TOP-LEFT SMALL IMAGE -->
+        <img 
+          src="https://www.condocontrol.com/wp-content/uploads/2023/03/iStock-1325708905-1.jpg"
+          class="img-fluid rounded shadow small-img small-top"
+          alt=""
+        />
+
+        <!-- BOTTOM-RIGHT SMALL IMAGE -->
+        <img 
+          src="https://wallup.net/wp-content/uploads/2014/08/interior-design-living-room.jpg"
+          class="img-fluid rounded shadow small-img small-bottom"
+          alt=""
+        />
+
+      </div>
+
+      <!-- RIGHT SIDE — CONTENT -->
+     <div class="col-lg-6">
+  <h2 class="fw-bold text-dark mb-3">About Us</h2>
+
+  <p class="text-black"  style="text-align: justify;">
+    We are a dedicated interior and home solutions company delivering high-quality designs that bring comfort,
+    style, and functionality into every space. Our goal is to create environments that reflect your lifestyle
+    and enhance everyday living.
+  </p>
+
+  <p class="text-black" style="text-align: justify;">
+    With years of experience in residential and commercial projects, we combine creativity with craftsmanship.
+    Every project is carefully planned, executed, and delivered with attention to detail and long-lasting durability.
+  </p>
+
+  <p class="text-black" style="text-align: justify;">
+    Whether it's interior designing, AC installation, modular kitchen, or complete renovation work, 
+    our expert team ensures seamless service from start to finish.
+  </p>
+
+<ul class="list-unstyled mt-3 text-dark about-list">
+    <li class="mb-2"><i class="bi bi-check2-circle text-gold me-2"></i> Premium Interior Work</li>
+    <li class="mb-2"><i class="bi bi-snow text-gold me-2"></i> AC Installation & Service</li>
+    <li class="mb-2"><i class="bi bi-bricks text-gold me-2"></i> Custom Modular Kitchens & Furniture</li>
+    <li class="mb-2"><i class="bi bi-gear-wide-connected text-gold me-2"></i> Complete Renovation Solutions</li>
+    <li class="mb-2"><i class="bi bi-headset text-gold me-2"></i> 24/7 Support & Maintenance</li>
+  </ul>
+
+  <a href="#contact" class="btn btn-gold mt-3 px-4 py-2" style="margin-left: 50px;">Contact Us</a>
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- WHY CHOOSE US SECTION -->
+
+
+
+<section class="header-main-section container-fluid" style="background: #111; color: #fff;">
+    
+    <!-- Left Background -->
+    <div class="header-left-bg"></div>
+
+    <div class="row w-100 align-items-center">
+      
+      <!-- Left Content -->
+      <div class="col-lg-6 header-text-box">
+
+        <div class="header-top-badge">• INTERIORS • AC SALES • SERVICE</div>
+
+        <h1 class="display-4 fw-bold">
+          Where Comfort Meets<br>
+          <span class="header-highlight-text">Creative Interiors</span><br>
+          And Cooling Solutions
+        </h1>
+
+        <div class="mt-4 header-feature-list">
+          <p><i class="bi bi-check"></i> Premium Home & Office Interiors</p>
+          <p><i class="bi bi-check"></i> AC Sales – Split, Window & Inverter Models</p>
+          <p><i class="bi bi-check"></i> Installation, Repair & Annual Maintenance</p>
+          <p><i class="bi bi-check"></i> High-Quality Workmanship & Support</p>
+        </div>
+
+        <p class="mt-3 text-light opacity-75">
+          From stunning interior designs to expert AC installation and maintenance, we bring 
+          comfort, style, and reliability under one roof. Your space deserves the best —
+          and we make it happen.
+        </p>
+
+        <button class="header-cta-btn mt-4">
+          Explore Our Services →
+        </button>
+
+      </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-6 p-0">
+        <img src="https://www.melaniejadedesign.com/wp-content/uploads/2023/09/install-air-con-3.jpg" class="header-right-img" alt="Interior Design Image">
+      </div>
+
+    </div>
+</section>
+
+
+
+  <!-- TOP SECTION -->
+<div class="svc-top-section p-5" >
+  <div class="svc-tag">
+    <span class="svc-dot"></span>
+    OUR SERVICES
+  </div>
+
+  <h1 class="svc-heading">
+    <span class="svc-gold">Explore Our Comprehensive</span><br>
+    Interior & AC Services
+  </h1>
+</div>
+
+<!-- MAIN FLEX -->
+<div class="svc-layout" style="padding-top:0; padding-left:40px; padding-right:40px; padding-bottom:40px;">
+
+  <div class="svc-preview-box">
+    <img id="svcPreviewImg"
+      src="https://c4.wallpaperflare.com/wallpaper/893/611/579/luxurious-interior-living-room-set-wallpaper-preview.jpg"
+      alt="preview">
+  </div>
+
+  <div class="svc-list">
+
+    <div class="svc-item" onmouseover="changeImage('https://c4.wallpaperflare.com/wallpaper/893/611/579/luxurious-interior-living-room-set-wallpaper-preview.jpg')">
+      <span><span class="svc-count">01</span> Full Home Interior Work</span>
+      <span class="svc-arrow">➜</span>
+    </div>
+
+    <div class="svc-item" onmouseover="changeImage('https://www.fabmodula.com/images/products/Modulars%203.jpg')">
+      <span><span class="svc-count">02</span> Modular Kitchen & Wardrobes</span>
+      <span class="svc-arrow">➜</span>
+    </div>
+
+    <div class="svc-item" onmouseover="changeImage('https://5.imimg.com/data5/SELLER/Default/2021/12/JY/KD/ZV/47585970/royal-dubai-false-ceiling-design-1000x1000.jpg')">
+      <span><span class="svc-count">03</span> False Ceiling & Lighting Work</span>
+      <span class="svc-arrow">➜</span>
+    </div>
+
+    <div class="svc-item" onmouseover="changeImage('https://i.pinimg.com/originals/d0/fe/07/d0fe077a8bd9fd02bc9b2fe2a1186506.jpg')">
+      <span><span class="svc-count">04</span> Living Room & TV Unit Designs</span>
+      <span class="svc-arrow">➜</span>
+    </div>
+
+    <div class="svc-item" onmouseover="changeImage('https://aws-obg-image-lb-1.tcl.com/content/dam/brandsite/global/images-for-blog/How-To-Choose-The-Best-Air-Conditioner-For-Your-Home.jpg')">
+      <span><span class="svc-count">05</span> AC Sales (All Brands)</span>
+      <span class="svc-arrow">➜</span>
+    </div>
+
+    <div class="svc-item" onmouseover="changeImage('https://wallpapers.com/images/hd/air-conditioner-installation-maintenance-hm5idt0hjya8bxdi.jpg')">
+      <span><span class="svc-count">06</span> AC Service, Repair & Installation</span>
+      <span class="svc-arrow">➜</span>
+    </div>
+
+  </div>
+</div>
+
+  
+<div style="background: #222;">
+
+<!-- Buttons -->
+<div class="project-tabs" style="background:#222 ;">
+  <button class="tab-btn active" data-filter="residential">Residential</button>
+  <button class="tab-btn" data-filter="hospitality">Hospitality</button>
+  <button class="tab-btn" data-filter="office">Office</button>
+  <button class="tab-btn" data-filter="commercial">Commercial</button>
+  <button class="tab-btn" data-filter="installation">AC Installation</button>
+  <button class="tab-btn" data-filter="sales">AC Sales</button>
+</div>
+
+<!-- Images -->
+<div class="project-gallery" style="background: #222;">
+
+  <!-- Residential -->
+  <div class="project-box" data-category="residential">
+    <img src="https://chiedesign.in/wp-content/uploads/2022/05/Luxury-Interior-Design-Living-Room.jpg">
+    <div class="project-title">Residential</div>
+  </div>
+
+  <div class="project-box" data-category="residential">
+    <img src="https://img.freepik.com/premium-photo/visualization-modern-residential-interior-design_1107902-1077.jpg">
+    <div class="project-title">Residential</div>
+  </div>
+
+  <div class="project-box" data-category="residential">
+    <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?cs=srgb&dl=interior-design-of-a-house-1571460.jpg&fm=jpg">
+    <div class="project-title">Residential</div>
+  </div>
+
+  <div class="project-box" data-category="residential">
+    <img src="https://i.pinimg.com/originals/63/0d/10/630d10da8cc033c84b9d523cb1862312.jpg">
+    <div class="project-title">Residential</div>
+  </div>
+
+  <!-- Hospitality -->
+  <div class="project-box" data-category="hospitality">
+    <img src="https://vanguard-development.com/wp-content/uploads/2015/11/Hospitality-designs-04.jpg">
+    <div class="project-title">Hospitality</div>
+  </div>
+
+  <div class="project-box" data-category="hospitality">
+    <img src="https://interiors.senahospitalitydesign.com/shd-media/2020/02/summer-bay-hotel-lobby-renovation-sena-hotel-hospitality-interior-design-orlando-florida-scaled.jpeg">
+    <div class="project-title">Hospitality</div>
+  </div>
+
+  <div class="project-box" data-category="hospitality">
+    <img src="https://www.interiorsbysteveng.com/wp-content/uploads/2017/08/Hospitality_Interior_Design_Businesses.jpg">
+    <div class="project-title">Hospitality</div>
+  </div>
+
+  <div class="project-box" data-category="hospitality">
+    <img src="https://bravenewinteriors.com/wp-content/uploads/2021/01/Hospitality-Interior-Design-Marriott-Denver-West-3-1.jpg">
+    <div class="project-title">Hospitality</div>
+  </div>
+
+  <!-- Office -->
+  <div class="project-box" data-category="office">
+    <img src="https://traart.com/wp-content/uploads/office-interior-design-hsl.jpg">
+    <div class="project-title">Office</div>
+  </div>
+
+  <div class="project-box" data-category="office">
+    <img src="https://officesnapshots.com/wp-content/uploads/2015/11/Meadows_Conference_Room_1.jpg">
+    <div class="project-title">Office</div>
+  </div>
+
+  <div class="project-box" data-category="office">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2022/6/QO/HG/SF/56523257/modern-office-interior-designing-1000x1000.jpg">
+    <div class="project-title">Office</div>
+  </div>
+
+  <div class="project-box" data-category="office">
+    <img src="https://haycafe.vn/wp-content/uploads/2022/03/Hinh-nen-phong-lam-viec-rong-rai.jpg">
+    <div class="project-title">Office</div>
+  </div>
+
+  <!-- Commercial -->
+  <div class="project-box" data-category="commercial">
+    <img src="https://greentechinteriors.in/wp-content/uploads/2022/09/commercial_interior_design.jpg">
+    <div class="project-title">Commercial</div>
+  </div>
+
+  <div class="project-box" data-category="commercial">
+    <img src="http://static1.squarespace.com/static/612d63deb76aeb118ce95c63/6137dc3988910d70a36f3f63/63c9fd3ebcb5225614ff7666/1674182099452/Vantage+6.jpg?format=1500w">
+    <div class="project-title">Commercial</div>
+  </div>
+
+  <div class="project-box" data-category="commercial">
+    <img src="https://images.squarespace-cdn.com/content/v1/612d63deb76aeb118ce95c63/54975c61-2a8d-426c-9425-6bac8d7443fa/Vantage+10.jpg?format=1500w">
+    <div class="project-title">Commercial</div>
+  </div>
+
+  <div class="project-box" data-category="commercial">
+    <img src="https://images.surferseo.art/f88318df-31ad-4883-a65e-ab642a106913.webp">
+    <div class="project-title">Commercial</div>
+  </div>
+
+  <!-- AC Installation -->
+  <div class="project-box" data-category="installation">
+    <img src="https://cdn.hellowatt.fr/media/solution/images/installation-clim-2.jpg">
+    <div class="project-title">AC Installation</div>
+  </div>
+
+  <div class="project-box" data-category="installation">
+    <img src="https://www.paramountpower.com.au/wp-content/uploads/2020/10/Air-conditioning-installation.jpg">
+    <div class="project-title">AC Installation</div>
+  </div>
+
+  <div class="project-box" data-category="installation">
+    <img src="https://wallpapers.com/images/hd/air-conditioner-installation-maintenance-hm5idt0hjya8bxdi.jpg">
+    <div class="project-title">AC Installation</div>
+  </div>
+
+  <div class="project-box" data-category="installation">
+    <img src="https://sukwariya.com/wp-content/uploads/2022/09/air-conditioner-service-indoors-air-conditioner-cleaning-technician-he-opened-front-cover-took-out-f-1.jpg">
+    <div class="project-title">AC Installation</div>
+  </div>
+
+  <!-- AC Sales -->
+  <div class="project-box" data-category="sales">
+    <img src="https://img.etimg.com/thumb/msid-98828203,width-1015,height-761,imgsize-63466,resizemode-8/prime/money-and-markets/scorching-summers-to-boost-ac-sales-but-will-stocks-of-voltas-whirlpool-et-al-soar-too.jpg">
+    <div class="project-title">AC Sales</div>
+  </div>
+
+  <div class="project-box" data-category="sales">
+    <img src="https://img.etimg.com/thumb/msid-91080009,width-1015,height-761,imgsize-66866,resizemode-8/prime/consumer/ac-sales-rocket-despite-higher-prices-and-supply-chain-disruptions-heres-whats-driving-them-.jpg">
+    <div class="project-title">AC Sales</div>
+  </div>
+
+  <div class="project-box" data-category="sales">
+    <img src="https://images.cnbctv18.com/wp-content/uploads/2021/04/Air-conditioners1-1019x573.jpg">
+    <div class="project-title">AC Sales</div>
+  </div>
+
+  <div class="project-box" data-category="sales">
+    <img src="https://www.jetstyle.com.sg/wp-content/uploads/2023/08/What-are-ceiling-cassette-AC-systems-Aircon-Singapore.jpg">
+    <div class="project-title">AC Sales</div>
+  </div>
+
+</div>
+
+<div class="yellow-bar"></div>
+</div>
+
+
+<!-- SCRIPT -->
+<script>
+  const buttons = document.querySelectorAll(".tab-btn");
+  const boxes = document.querySelectorAll(".project-box");
+
+  function filterProjects(category) {
+    boxes.forEach(box => {
+      box.style.display = (box.dataset.category === category) ? "block" : "none";
+    });
+  }
+
+  filterProjects("residential"); // DEFAULT SHOW RESIDENTIAL
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.dataset.filter;
+      filterProjects(category);
+    });
+  });
+</script>
+
+<section class="hero-interior-ac-section d-flex align-items-center justify-content-center text-center">
+
+  <div class="hero-content">
+    <div class="badge">• INTERIORS • AC SALES • SERVICE •</div>
+
+    <h1 class="hero-title">
+      Premium Interiors & Reliable<br>
+      <span class="highlight">AC Sales & Services</span>
+    </h1>
+
+    <p class="hero-subtext">
+      Complete home & office interior solutions, expert AC installation, repair, 
+      and maintenance — all under one roof. Designed for comfort. Delivered with quality.
+    </p>
+
+    <button class="hero-btn">Explore Our Services →</button>
+  </div>
+
+</section>
+
+<style>
+.hero-interior-ac-section {
+    background: url('https://images.pexels.com/photos/6312357/pexels-photo-6312357.jpeg') center/cover no-repeat;
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    color: #fff;
+        background-attachment: fixed; /* FIXED BG */
+
+}
+
+/* Dark Overlay */
+.hero-interior-ac-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.badge {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #f0f0f0;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.highlight {
+    color: #ffd44d;
+}
+
+.hero-subtext {
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.hero-btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: #ffd44d;
+    color: #111;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    background: #ffca35;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    .hero-subtext {
+        font-size: 16px;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+  <div class="container-fluid faq-section" style="background-color: #222;">
+    <div class="row">
+
+      <!-- LEFT SIDE FAQ -->
+      <div class="col-lg-6 col-md-12">
+
+        <div class="faq-tag">COMMON QUESTIONS</div>
+        <h1 class="faq-title">Most Popular Questions</h1>
+
+        <p class="faq-subtitle">
+          Explore answers related to interior design, AC sales, AC installation, and professional servicing.
+        </p>
+
+        <!-- FAQ 1 -->
+        <div class="faq-box">
+          <span class="plus">+</span> What interior & AC services do you provide?
+        </div>
+        <div class="faq-content">
+          We offer modular interiors, full home renovation, AC sales (Split, Window, Inverter AC),
+          AC installation, gas refilling, seasonal servicing, and annual maintenance contracts.
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-box">
+          <span class="plus">+</span> How long does an interior or AC installation project take?
+        </div>
+        <div class="faq-content">
+          Interior projects typically take 10–30 days depending on work scope. AC installation takes 1–2 hours.
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-box">
+          <span class="plus">+</span> Do you offer customized interior designs & AC solutions?
+        </div>
+        <div class="faq-content">
+          Yes! We create designs based on your space and provide AC recommendations suitable for room size and usage.
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-box">
+          <span class="plus">+</span> What is the average cost for interior work & AC setups?
+        </div>
+        <div class="faq-content">
+          Interior pricing starts from ₹40,000 and varies based on materials. AC installation starts from ₹1,500 and AC units from ₹28,000.
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-box">
+          <span class="plus">+</span> Can you work with existing furniture & AC units?
+        </div>
+        <div class="faq-content">
+          Absolutely! We can redesign using your current furniture and service/repair existing AC units.
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-box">
+          <span class="plus">+</span> Do you handle both residential and commercial projects?
+        </div>
+        <div class="faq-content">
+          Yes, we handle home interiors, office interiors, shops, AC sales for businesses, and large commercial AC installations.
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT SIDE IMAGES -->
+      <div class="col-lg-6 col-md-12">
+
+        <img src="https://w0.peakpx.com/wallpaper/31/188/HD-wallpaper-living-room-furniture-home-interior.jpg" 
+             class="collage-img" height="330">
+
+        <div class="img-row">
+          <img src="https://wallpapers.com/images/hd/air-conditioner-installation-maintenance-hm5idt0hjya8bxdi.jpg" 
+               class="collage-img img-2-small" height="220">
+          <img src="https://chillsairconditioning.com/wp-content/uploads/2020/02/AC-Unit-Work.jpg"
+               class="collage-img img-2-small" height="220">
+        </div>
+
+        <img src="http://1.bp.blogspot.com/-WSW56XeP1hE/U47h-oOD0-I/AAAAAAAADE4/NI9kWja7cEQ/s1600/interior-design-style-design-home-house-living-room.jpg" 
+             class="collage-img" height="350" style="margin-top:20px;">
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Smooth FAQ script -->
+  <script>
+    const items = document.querySelectorAll(".faq-box");
+
+    items.forEach((box, index) => {
+      box.addEventListener("click", () => {
+
+        const content = box.nextElementSibling;
+        const plusIcon = box.querySelector(".plus");
+
+        // toggle slide animation
+        content.classList.toggle("open");
+
+        // rotate + icon into X symbol
+        plusIcon.classList.toggle("rotate");
+      });
+    });
+  </script>
+
+
+<!-- FOOTER -->
+<footer style="background:#111; color:#ccc; padding:50px 0;">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Logo & About -->
+      <div class="col-md-4 mb-4">
+        <h3 style="color:#f6c025; font-weight:700;">Your Brand</h3>
+        <p style="line-height:1.7;">
+          We provide professional Interior Design, AC Sales, AC Installation,
+          and complete cooling solutions with high-quality service.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2 mb-4">
+        <h5 style="color:#fff; margin-bottom:20px;">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" style="color:#ccc; text-decoration:none;">Home</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">Projects</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">Interiors</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">AC Services</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-md-3 mb-4">
+        <h5 style="color:#fff; margin-bottom:20px;">Our Services</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" style="color:#ccc; text-decoration:none;">Interior Designing</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">Residential Interiors</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">AC Installation</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">AC Sales</a></li>
+          <li><a href="#" style="color:#ccc; text-decoration:none;">AC Service & Repair</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h5 style="color:#fff; margin-bottom:20px;">Contact Us</h5>
+
+        <p><i class="bi bi-geo-alt-fill" style="color:#f6c025; margin-right:8px;"></i> Your Address Here</p>
+        <p><i class="bi bi-telephone-fill" style="color:#f6c025; margin-right:8px;"></i> Your Phone Number</p>
+        <p><i class="bi bi-envelope-fill" style="color:#f6c025; margin-right:8px;"></i> yourmail@gmail.com</p>
+
+        <div class="mt-3">
+          <a href="#" style="color:#f6c025; font-size:22px; margin-right:10px;">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" style="color:#f6c025; font-size:22px; margin-right:10px;">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" style="color:#f6c025; font-size:22px;">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr style="border-color:#333; margin:30px 0;">
+
+    <p class="text-center" style="color:#888; margin:0;">
+      © 2025 Your Company Name. All Rights Reserved.
+    </p>
+
+  </div>
+</footer>
+
+
+
+
+
+<script>
+  function changeImage(url) {
+    const img = document.getElementById("svcPreviewImg");
+    img.style.opacity = "0";
+    setTimeout(() => {
+      img.src = url;
+      img.style.opacity = "1";
+    }, 300);
+  }
+</script>
+
+
+
+
+
+  <!-- SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Navbar Scroll Script -->
+  <script>
+    window.addEventListener("scroll", function () {
+      let navbar = document.querySelector(".custom-navbar");
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+    });
+  </script>
+
+</body>
+
+</html>
