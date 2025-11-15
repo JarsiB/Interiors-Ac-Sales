@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interiors & AC Website</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+<style>
+
+/* PREVENT PAGE OVERFLOW */
+html, body {
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
+}
+
+
+/* FIX NAVBAR TOGGLE ICON */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Transparent Navbar */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0; 
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 0;
+  background: rgba(0, 0, 0, 0);
+  transition: 0.4s ease;
+  overflow: hidden;
+}
+
+.custom-navbar.scrolled {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.navbar-toggler {
+  background: #fff;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+.nav-link:hover{
+    color: #f0ad00 !important;
+}
+
+     
+        .blog-card img {
+            width: 100%;
+            border-radius: 25px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: #f6c025;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .blog-card {
+            position: relative;
+        }
+
+        .blog-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .blog-desc {
+            color: #555;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .admin-text {
+            color: #f6c025;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .blog-card img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-card img {
+                height: 200px;
+            }
+        }
+  
+
+  /*  */
+  /* HERO SECTION */
+.interior-hero {
+    height: 60vh; /* changed to 50vh */
+    background: url("https://kirwinac.co.uk/wp-content/uploads/2020/08/Indoor-1-1.jpg") center/cover no-repeat;
+    position: relative;
+        animation: heroZoom 12s ease-in-out infinite;
+
+}
+/* Zoom Keyframes */
+@keyframes heroZoom {
+    0%   { background-size: 100%; }
+    50%  { background-size: 115%; }
+    100% { background-size: 100%; }
+}
+/* Overlay */
+.interior-hero-overlay {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+}
+
+/* Content Box */
+.interior-hero-content {
+    position: relative;
+    z-index: 2;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Title */
+.interior-hero-title {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+/* Subtitle */
+.interior-hero-subtitle {
+    font-size: 18px;
+    max-width: 600px;
+}
+
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    .interior-hero-title { font-size: 32px; }
+}
+
+@media (max-width: 576px) {
+    .interior-hero-title { font-size: 26px; }
+    .interior-hero-subtitle { font-size: 14px; }
+}
+
+/*  */.interior-section {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background: url("https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1nja4h.img?w=1920&h=1080&m=4&q=79")
+                center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    /* ZOOM ANIMATION */
+    animation: zoomBg 12s ease-in-out infinite;
+}
+
+@keyframes zoomBg {
+    0%   { background-size: 100%; }
+    50%  { background-size: 110%; }
+    100% { background-size: 100%; }
+}
+
+.interior-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+}
+
+.interior-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    color: #fff;
+}
+
+.interior-heading {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.interior-text {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #f1f1f1;
+}
+
+.interior-btn {
+    background: #f0ad00;
+    color: #000;
+    padding: 8px 25px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .interior-section { height: 50vh; }
+    .interior-heading { font-size: 32px; }
+    .interior-text { font-size: 16px; }
+}
+
+@media (max-width: 576px) {
+    .interior-section { height: 45vh; }
+    .interior-heading { font-size: 26px; }
+    .interior-text { font-size: 15px; }
+}
+
+/*  */
+  .carousel-container {
+        /* padding-left: 40px;
+        padding-right: 40px; */
+        padding: 40px;
+      }
+
+      /* CAROUSEL HEIGHT */
+      .carousel-item {
+        height: 90vh;
+        position: relative;
+        border-radius: 25px;
+        overflow: hidden;
+      }
+
+      /* BG IMAGE + ZOOM ANIMATION */
+      .carousel-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        animation: zoomInOut 12s ease-in-out infinite;
+        border-radius: 25px;
+      }
+
+      /* ZOOM EFFECT */
+      @keyframes zoomInOut {
+        0% {
+          background-size: 100%;
+        }
+        50% {
+          background-size: 115%;
+        }
+        100% {
+          background-size: 100%;
+        }
+      }
+
+      /* CENTER VIDEO PLAY BUTTON */
+      .carousel-center-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+      }
+
+      /* Animated Play Button */
+      .play-btn {
+        width: 85px;
+        height: 85px;
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 20px; /* Smooth rounded corners */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: 0.3s;
+
+        /* pulsing animation */
+        animation: pulseAnim 2s infinite ease-in-out;
+      }
+
+      .play-btn i {
+        font-size: 42px;
+        color: #000;
+      }
+
+      /* Hover Effect */
+      .play-btn:hover {
+        background: #f0ad00;
+      }
+
+      /* Pulse Animation */
+      @keyframes pulseAnim {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.12);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* RESPONSIVE FIXES */
+      @media (max-width: 768px) {
+        .carousel-item {
+          height: 60vh;
+        }
+        .play-btn {
+          width: 65px;
+          height: 65px;
+          border-radius: 15px;
+        }
+        .play-btn i {
+          font-size: 30px;
+        }
+        .carousel-container {
+         padding: 20px;
+        }
+      }
+
+      /*  */
+      /* CARD WRAPPER */
+.blog-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+/* IMAGE ZOOM ON HOVER */
+.blog-card img {
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover img {
+    transform: scale(1.1);
+}
+
+/* OVERLAY */
+.blog-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    opacity: 0;
+    transition: 0.4s ease;
+    border-radius: 25px;
+}
+
+/* SHOW OVERLAY ON HOVER */
+.blog-card:hover::after {
+    opacity: 1;
+}
+
+/* IMAGE OVERLAY */
+.carousel-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45); /* adjust darkness */
+    z-index: 1;
+}
+
+/* Make sure background stays below overlay */
+.carousel-bg {
+    position: relative;
+    z-index: 0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 900,
+  once: true
+});
+</script>
+
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#" data-aos="zoom-in">Interior & AC</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"  data-aos="zoom-in"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"  data-aos="zoom-in"><a class="nav-link" href="interior.html">Interiors</a></li>
+        <li class="nav-item"  data-aos="zoom-in"><a class="nav-link" href="Ac.html">AC Sales & Services</a></li>
+        <li class="nav-item"  data-aos="zoom-in"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="interior-hero d-flex align-items-center">
+    <div class="interior-hero-overlay"></div>
+
+    <div class="container">
+        <div class="interior-hero-content">
+
+            <h1 class="interior-hero-title" style="color: #f6c025;" data-aos="fade-up"
+     data-aos-duration="3000">
+                Experience Superior Cooling With Trusted AC Experts
+
+            </h1>
+
+            <p class="interior-hero-subtitle mt-3"data-aos="fade-up"
+     data-aos-duration="3000">
+               From new AC sales to fast repairs and annual maintenance, we deliver cooling solutions built for performance and durability.
+
+            </p>
+
+           
+        </div>
+    </div>
+</section>
+
+
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card" data-aos="fade-up"
+     data-aos-duration="3000">
+                    <span class="category-badge">AC Installation</span>
+                    <img src="https://www.paramountpower.com.au/wp-content/uploads/2020/10/Air-conditioning-installation.jpg" alt="">
+                </div>
+
+                <div class="mt-3"  data-aos="zoom-in">
+                    <h3 class="blog-title">Professional AC Installation for Homes & Offices</h3>
+                    <p class="blog-desc">
+                        Get hassle-free AC installation done by certified technicians ensuring correct placement,
+                        efficient cooling, and long-term performance...
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card" data-aos="fade-up"
+     data-aos-duration="3000">
+                    <span class="category-badge">AC Sales</span>
+                    <img src="https://storables.com/wp-content/uploads/2023/07/how-to-install-a-wall-ac-unit-1688882993.jpg" alt="">
+                </div>
+
+                <div class="mt-3" data-aos="zoom-in">
+                    <h3 class="blog-title">Top AC Brands at the Best Prices</h3>
+                    <p class="blog-desc">
+                        Choose from leading brands including LG, Voltas, Daikin, Blue Star, and Samsung with expert
+                        guidance to find the perfect AC for your needs...
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card" data-aos="fade-up"
+     data-aos-duration="3000">
+                    <span class="category-badge">AC Service</span>
+                    <img src="https://www.airconditionerrepairservice.com.au/wp-content/uploads/2022/07/air-conditioner-repairs-and-servicing.png" alt="">
+                </div>
+
+                <div class="mt-3"  data-aos="zoom-in">
+                    <h3 class="blog-title">AC Deep Cleaning & Routine Service</h3>
+                    <p class="blog-desc">
+                        Improve cooling efficiency and power savings with professional AC servicing including filter
+                        cleaning, coil wash, and full unit checkup...
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card" data-aos="fade-up"
+     data-aos-duration="3000">
+                    <span class="category-badge">AC Repair</span>
+                    <img src="https://superiorplumbing.ca/wp-content/uploads/2023/05/ductless-ac-repair-1.jpg" alt="">
+                </div>
+
+                <div class="mt-3"  data-aos="zoom-in">
+                    <h3 class="blog-title">Fast & Reliable AC Repair Solutions</h3>
+                    <p class="blog-desc">
+                        Whether it’s gas leakage, compressor issues, water dripping, or poor cooling — our experts
+                        provide quick and accurate repair services...
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card"data-aos="fade-up"
+     data-aos-duration="3000">
+                    <span class="category-badge">AMC Plans</span>
+                    <img src="https://www.vijaysales.com/content/vijaysaleswebsite/us/en/product-details-page/_jcr_content/root/container/vscontainer_869603545/container/image.coreimg.jpeg/1721908206847/installation.jpeg" alt="">
+                </div>
+
+                <div class="mt-3"  data-aos="zoom-in">
+                    <h3 class="blog-title">Annual Maintenance Contract for Total Care</h3>
+                    <p class="blog-desc">
+                        Keep your AC running smoothly all year with our AMC plans covering regular service, checkups,
+                        and priority support at affordable rates...
+                    </p>
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-card" data-aos="fade-up"
+     data-aos-duration="3000">
+                    <span class="category-badge">AC Upgrade</span>
+                    <img src="https://os-wordpress-media.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/11/24212247/Air-Conditioner-Buying-Guide.jpg" alt="">
+                </div>
+
+                <div class="mt-3" data-aos="zoom-in">
+                    <h3 class="blog-title">Upgrade to Energy-Efficient Inverter ACs</h3>
+                    <p class="blog-desc">
+                        Reduce electricity bills and enjoy superior cooling with the latest inverter technology ACs
+                        designed for silent performance and long life...
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<section class="interior-section"data-aos="fade-up"
+     data-aos-duration="3000">
+    <div class="interior-overlay"></div>
+
+    <div class="container text-center interior-content">
+        <h2 class="interior-heading"  data-aos="zoom-in">Reliable AC Sales & Quality Cooling Solutions</h2>
+
+        <p class="interior-text"  data-aos="zoom-in">
+            From new AC installations to expert repairs and annual maintenance, we provide fast, affordable, and 
+            trusted cooling services for homes and businesses.
+        </p>
+
+        <a href="#" class="btn interior-btn mt-3"  data-aos="zoom-in">Explore Our AC Services</a>
+    </div>
+</section>
+
+
+  <div class="carousel-container" data-aos="fade-up"
+     data-aos-duration="3000">
+      <section
+        id="interiorCarousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="2000"
+      >
+        <div class="carousel-inner">
+          <!-- SLIDE 1 -->
+          <div class="carousel-item active">
+            <div
+              class="carousel-bg"
+              style="
+                background-image: url('https://wallpapercave.com/wp/wp8216178.jpg');
+              "
+            ></div>
+
+            <!-- CENTER VIDEO BUTTON -->
+            <div class="carousel-center-btn">
+              <a href="#" class="play-btn">
+                <i class="bi bi-play-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 2 -->
+          <div class="carousel-item">
+            <div
+              class="carousel-bg"
+              style="
+                background-image: url('https://wallpapers.com/images/hd/air-conditioner-installation-maintenance-hm5idt0hjya8bxdi.jpg');
+              "
+            ></div>
+
+            <div class="carousel-center-btn">
+              <a href="#" class="play-btn">
+                <i class="bi bi-play-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="carousel-item">
+            <div
+              class="carousel-bg"
+              style="
+                background-image: url('https://toshiba-aircon.com.au/wp/wp-content/uploads/2021/06/air-conditioner-installer.jpg');
+              "
+            ></div>
+
+            <div class="carousel-center-btn">
+              <a href="#" class="play-btn">
+                <i class="bi bi-play-fill"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<!-- FOOTER -->
+<footer style="background:#111; color:#ccc; padding:50px 0;">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Logo & About -->
+      <div class="col-md-4 mb-4">
+        <h3 style="color:#f6c025; font-weight:700;"data-aos="zoom-in">Your Brand</h3>
+        <p style="line-height:1.7;" data-aos="zoom-in">
+          We provide professional Interior Design, AC Sales, AC Installation,
+          and complete cooling solutions with high-quality service.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2 mb-4">
+        <h5 style="color:#fff; margin-bottom:20px;" data-aos="zoom-in">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li data-aos="zoom-in"><a href="index.html" style="color:#ccc; text-decoration:none;">Home</a></li>
+          <!-- <li data-aos="zoom-in"><a href="" style="color:#ccc; text-decoration:none;">Projects</a></li> -->
+          <li data-aos="zoom-in"><a href="interior.html" style="color:#ccc; text-decoration:none;">Interiors</a></li>
+          <li data-aos="zoom-in"><a href="Ac.html" style="color:#ccc; text-decoration:none;">AC Services</a></li>
+          <li data-aos="zoom-in"><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-md-3 mb-4">
+        <h5 style="color:#fff; margin-bottom:20px;" data-aos="zoom-in">Our Services</h5>
+        <ul class="list-unstyled">
+          <li data-aos="zoom-in"><a href="#" style="color:#ccc; text-decoration:none;">Interior Designing</a></li>
+          <li data-aos="zoom-in"><a href="#" style="color:#ccc; text-decoration:none;">Residential Interiors</a></li>
+          <li data-aos="zoom-in"><a href="#" style="color:#ccc; text-decoration:none;">AC Installation</a></li>
+          <li data-aos="zoom-in"><a href="#" style="color:#ccc; text-decoration:none;">AC Sales</a></li>
+          <li data-aos="zoom-in"><a href="#" style="color:#ccc; text-decoration:none;">AC Service & Repair</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-3 mb-4">
+        <h5 style="color:#fff; margin-bottom:20px;" data-aos="zoom-in">Contact Us</h5>
+
+        <p data-aos="zoom-in"><i class="bi bi-geo-alt-fill" style="color:#f6c025; margin-right:8px;"></i> Your Address Here</p>
+        <p data-aos="zoom-in"><i class="bi bi-telephone-fill" style="color:#f6c025; margin-right:8px;"></i> Your Phone Number</p>
+        <p data-aos="zoom-in"><i class="bi bi-envelope-fill" style="color:#f6c025; margin-right:8px;"></i> yourmail@gmail.com</p>
+
+        <div class="mt-3">
+          <a href="#" style="color:#f6c025; font-size:22px; margin-right:10px;" data-aos="zoom-in">
+            <i class="bi bi-facebook" data-aos="zoom-in"></i>
+          </a>
+          <a href="#" style="color:#f6c025; font-size:22px; margin-right:10px;" data-aos="zoom-in">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" style="color:#f6c025; font-size:22px;" data-aos="zoom-in">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr style="border-color:#333; margin:30px 0;">
+
+    <p class="text-center" style="color:#888; margin:0;">
+      © 2025 Your Company Name. All Rights Reserved.
+    </p>
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  window.addEventListener("scroll", function () {
+    let navbar = document.querySelector(".custom-navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 20);
+  });
+</script>
+
+</body>
+</html>
